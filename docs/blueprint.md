@@ -2,10 +2,12 @@
 
 ## Core Features:
 
+ppo testing and docs seperate
+
 - City Grid Visualization: Display a 2D grid representing the city environment with roads, bike lanes, pollution zones, charging stations, pickup, and drop-off locations.
 - Agent Status Display: Show the agent's current position, battery level, and task status on the UI.
 - RL Agent Logic: Implement the RL agent that learns to navigate the city, choosing actions based on its observation and a reward function. The agent should be able to pick up and deliver packages, while avoiding pollution zones and prioritizing bike lanes. The agent will recharge at charging stations as needed.
-- Sustainability Score Calculation: Calculate and display a sustainability score based on the agent's route, considering energy consumption, pollution avoidance, and use of green infrastructure.  Make sure the score is displayed as a tool that the user can view.
+- Sustainability Score Calculation: Calculate and display a sustainability score based on the agent's route, considering energy consumption, pollution avoidance, and use of green infrastructure. Make sure the score is displayed as a tool that the user can view.
 - Manual Control Mode: Allow users to manually control the agent to compare manual routing with the AI-driven routing.
 
 ## Style Guidelines:
@@ -17,6 +19,7 @@
 - A clear and intuitive layout with the grid map taking center stage and control panels positioned on the sides or bottom.
 
 ## Original User Request:
+
 let’s focus on conceptual clarity for building EcoRoute RL, without diving into code yet. This will help you clearly understand the design choices, logic, and structure before implementing anything.
 
 🌍 EcoRoute RL: Conceptual Breakdown
@@ -97,13 +100,13 @@ Each action consumes energy depending on what type of cell it's in and what it's
 In RL, rewards guide the learning. Here, we want to incentivize green behavior and delivery success.
 
 ✅ Reward Design
-Event	Reward	Rationale
-Successful delivery	+100	Primary goal
-Pickup action	+10	Encourages moving toward the task
-Traveling on bike lane	+5 (per step)	Promote eco-route usage
-Entering pollution zone	-10	Penalty for unsustainable paths
-Energy used (any action)	-0.3 to -1	Penalize inefficiency
-Step penalty (time)	-0.5	Encourage faster completion
+Event Reward Rationale
+Successful delivery +100 Primary goal
+Pickup action +10 Encourages moving toward the task
+Traveling on bike lane +5 (per step) Promote eco-route usage
+Entering pollution zone -10 Penalty for unsustainable paths
+Energy used (any action) -0.3 to -1 Penalize inefficiency
+Step penalty (time) -0.5 Encourage faster completion
 4️⃣ CONSTRAINTS
 ⚡ Energy/Battery
 Every move or action uses energy.
@@ -117,13 +120,13 @@ This adds a trade-off: take a short but polluting route, or a longer green one?
 5️⃣ EXPANDABILITY
 Here’s how you can grow this project over time:
 
-Feature	Why Add It?
-Real map data (OpenStreetMap)	Make it more realistic
-Multi-agent delivery fleet	Learn cooperation or coordination
-Weather & terrain effects	More realistic environment variability
-Time windows for delivery	Adds scheduling constraint
-Dynamic traffic congestion	Real-time decision adaptation
-Prioritizing certain zones	Mimic government regulation for green zones
+Feature Why Add It?
+Real map data (OpenStreetMap) Make it more realistic
+Multi-agent delivery fleet Learn cooperation or coordination
+Weather & terrain effects More realistic environment variability
+Time windows for delivery Adds scheduling constraint
+Dynamic traffic congestion Real-time decision adaptation
+Prioritizing certain zones Mimic government regulation for green zones
 6️⃣ WHY THIS PROJECT IS POWERFUL
 ✅ Education
 Teaches RL through a relatable, city-scale task
@@ -158,8 +161,7 @@ Compare with real-world analogs like Google Maps eco-routes?
 
 Let’s keep going!
 
-
- Let’s now reframe EcoRoute RL not just as a reinforcement learning concept, but as a web-based simulation app — something interactive, visual, and educational. Think of it like a serious game or RL-powered simulator you can run in a browser.
+Let’s now reframe EcoRoute RL not just as a reinforcement learning concept, but as a web-based simulation app — something interactive, visual, and educational. Think of it like a serious game or RL-powered simulator you can run in a browser.
 
 🌐 How to Conceptualize EcoRoute RL as a Web App
 🎯 Core Concept
@@ -174,15 +176,15 @@ Controlling the agent manually (for comparison)
 Viewing eco-metrics like emissions saved or route score
 
 💡 1. User-Facing Elements
-UI Component	Purpose
-🗺️ City Grid Map	Visualize roads, pollution zones, bike lanes, stations
-🚴 Agent Icon	Represents the delivery courier or bot
-⚡ Battery Meter	Shows remaining energy
-📦 Task Panel	Displays pickup/drop-off status
-🧠 "Train Agent" Button	Starts RL training simulation
-🎮 Manual Mode Toggle	Lets users manually control the agent
-📊 Analytics Panel	Displays rewards, steps, sustainability score, etc.
-🔄 Reset / Randomize Map	Replays with different city layout
+UI Component Purpose
+🗺️ City Grid Map Visualize roads, pollution zones, bike lanes, stations
+🚴 Agent Icon Represents the delivery courier or bot
+⚡ Battery Meter Shows remaining energy
+📦 Task Panel Displays pickup/drop-off status
+🧠 "Train Agent" Button Starts RL training simulation
+🎮 Manual Mode Toggle Lets users manually control the agent
+📊 Analytics Panel Displays rewards, steps, sustainability score, etc.
+🔄 Reset / Randomize Map Replays with different city layout
 🧠 2. Agent Logic (Behind the Scenes)
 Even in a web app, the agent logic follows RL concepts:
 
@@ -200,13 +202,13 @@ Gets feedback via a reward function
 📦 3. Environment Model (Map Design)
 The web app grid acts as a dynamic simulation space:
 
-Tile Type	Color/Icon	Behavior
-Road	Gray square	Normal energy cost
-Bike lane	Green stripe	Reduced energy use, reward boost
-Pollution zone	Red shaded	Higher energy cost, penalty
-Charging station	⚡ icon	Recharge energy
-Pickup spot	📦 icon	Allows picking up package
-Drop-off spot	🎯 icon	Final goal
+Tile Type Color/Icon Behavior
+Road Gray square Normal energy cost
+Bike lane Green stripe Reduced energy use, reward boost
+Pollution zone Red shaded Higher energy cost, penalty
+Charging station ⚡ icon Recharge energy
+Pickup spot 📦 icon Allows picking up package
+Drop-off spot 🎯 icon Final goal
 👉 These tiles define how the agent performs and learns — the rules of the game.
 
 🧮 4. Reward Feedback (Visible or Background)
@@ -260,21 +262,21 @@ Test different reward settings
 Observe how the agent adapts
 
 🌍 Real-World Value & Use Cases
-Audience	Why They'd Use This
-Students	Learn reinforcement learning concepts interactively
-Sustainability advocates	Visualize the impact of green routing
-Urban planners	Prototype delivery behavior in city layouts
-Companies	Demo logistics strategies (green delivery)
-Gamers	Compete with AI in eco-routing challenges
+Audience Why They'd Use This
+Students Learn reinforcement learning concepts interactively
+Sustainability advocates Visualize the impact of green routing
+Urban planners Prototype delivery behavior in city layouts
+Companies Demo logistics strategies (green delivery)
+Gamers Compete with AI in eco-routing challenges
 🛠️ Tech Concepts That Power the App (High-Level)
-Concept	How it Maps to Web App
-RL Agent	AI logic running in browser or backend
-Environment	The grid and tile rules
-Reward Function	Determines feedback per action
-Episodes	One full delivery trial (pickup ➝ drop)
-Training Loop	Multiple episodes = learning
-Visual Renderer	Canvas/Grid UI that shows actions
-Optional: User Controls	Buttons to toggle training, reset, control agent
+Concept How it Maps to Web App
+RL Agent AI logic running in browser or backend
+Environment The grid and tile rules
+Reward Function Determines feedback per action
+Episodes One full delivery trial (pickup ➝ drop)
+Training Loop Multiple episodes = learning
+Visual Renderer Canvas/Grid UI that shows actions
+Optional: User Controls Buttons to toggle training, reset, control agent
 TL;DR: What You’re Building
 A browser-based AI simulation where users watch or compete with a learning agent trying to deliver packages in a sustainable way through a city grid — balancing eco-efficiency, energy use, and urban constraints.
 
@@ -287,4 +289,3 @@ Designing a mock UI layout (wireframe)?
 Choosing whether AI runs on browser or backend?
 
 Let’s take this vision forward — you’re building something with real educational and demo value!
-  
